@@ -1,0 +1,12 @@
+<div>
+  <md-input-container>
+    <input mdInput class="input" type="text" name="title" placeholder="項目名" [(ngModel)]="budget.title">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput class="input" type="number" name="price" placeholder="金額" [(ngModel)]="budget.price">
+  </md-input-container>
+  <md-radio-group [(ngModel)]="userName">
+    <md-radio-button *ngFor="let user of users" value="{{ user.name }}">{{ user.name }}</md-radio-button>
+  </md-radio-group>
+  <button md-raised-button (click)="add()" color="primary">追加</button>
+</div>

@@ -1,0 +1,52 @@
+<md-tab-group>
+  <md-tab label="収入">
+    <div class="container">
+      <h2>収入</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>項目名</th>
+            <th>金額</th>
+            <th>収入元</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of budgets.income | async">
+            <td>{{ item.title }}</td>
+            <td>{{ item.price | number }}円</td>
+            <td>{{ item.user?.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>合計: {{ getTotal('income') | number }}円</p>
+      <app-input-form [users]="users | async" [type]="'income'"></app-input-form>
+    </div>
+  </md-tab>
+  <md-tab label="支出">
+    <div class="container">
+      <h2>支出</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>項目名</th>
+            <th>金額</th>
+            <th>支出元</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of budgets.outgo | async">
+            <td>{{ item.title }}</td>
+            <td>{{ item.price | number }}円</td>
+            <td>{{ item.user?.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>合計: {{ getTotal('outgo') | number }}円</p>
+      <app-input-form [users]="users | async" [type]="'outgo'"></app-input-form>
+    </div>
+  </md-tab>
+</md-tab-group>
+<div class="bottom-bar">
+  <div>総合計: {{ getTotal() | number }}円</div>
+  <div><button md-raised-button (click)="finish()">完了</button></div>
+</div>
