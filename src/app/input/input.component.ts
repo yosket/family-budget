@@ -43,7 +43,11 @@ export class InputComponent implements OnInit {
   }
 
   finish() {
-    const navigationExtras: NavigationExtras = { queryParams: { aaa: 123 } };
-    this.router.navigate(['result'], navigationExtras);
+    Observable.forkJoin(this.users, this.budgets.income, this.budgets.outgo).subscribe(data => {
+      const navigationExtras: NavigationExtras = { queryParams: {
+        data: JSON.stringify(data)
+      } };
+      this.router.navigate(['result'], navigationExtras);
+    });
   }
 }
