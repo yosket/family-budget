@@ -1,4 +1,16 @@
+<ul>
+  <li *ngFor="let user of users">
+    <strong>{{ user.name }}合計</strong>
+    <span>{{ userTotal[user.name].income - userTotal[user.name].outgo | number }}円</span>
+  </li>
+</ul>
 <dl>
   <dt>お小遣い（一人あたり）</dt>
-  <dd>{{ (total.income - total.outgo) / users.length | number }}円</dd>
+  <dd>
+    <strong>{{ (total.income - total.outgo) / users.length | number }}円</strong>
+    <p *ngFor="let user of users">
+      {{ user.name }} が相手からもらう金額は
+      {{ ((total.income - total.outgo) / users.length) - (userTotal[user.name].income - userTotal[user.name].outgo) | number }}円
+    </p>
+  </dd>
 </dl>

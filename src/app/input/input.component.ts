@@ -11,8 +11,8 @@ import { User, Budget } from '../models';
 })
 export class InputComponent implements OnInit {
 
-  private users: Observable<User[]>;
-  private budgets: {
+  users: Observable<User[]>;
+  budgets: {
     income: Observable<Budget[]>,
     outgo : Observable<Budget[]>
   };

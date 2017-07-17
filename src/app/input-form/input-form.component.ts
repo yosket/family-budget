@@ -12,8 +12,8 @@ export class InputFormComponent implements OnInit {
   @Input() users: User[];
   @Input() type: 'income' | 'outgo';
 
-  private budget  : Budget;
-  private userName: string;
+  budget  : Budget;
+  userName: string;
 
   constructor(private storeService: StoreService) { }
 
