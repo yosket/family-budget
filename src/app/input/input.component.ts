@@ -42,6 +42,10 @@ export class InputComponent implements OnInit {
     return total;
   }
 
+  delete(type: 'income' | 'outgo', budget: Budget): void {
+    this.storeService.remove(type, budget);
+  }
+
   finish() {
     Observable.forkJoin(this.users, this.budgets.income, this.budgets.outgo).subscribe(data => {
       const navigationExtras: NavigationExtras = { queryParams: {

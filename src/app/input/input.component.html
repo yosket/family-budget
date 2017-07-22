@@ -8,6 +8,7 @@
             <th>項目名</th>
             <th>金額</th>
             <th>収入元</th>
+            <th>削除</th>
           </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
             <td>{{ item.title }}</td>
             <td>{{ item.price | number }}円</td>
             <td>{{ item.user?.name }}</td>
+            <td><button md-mini-fab (click)="delete('income', item)"><md-icon>close</md-icon></button></td>
           </tr>
         </tbody>
       </table>

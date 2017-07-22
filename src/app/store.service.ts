@@ -23,7 +23,12 @@ export class StoreService {
     return Observable.of(this.state.budgets[type]);
   }
 
-  add(type: 'income' | 'outgo', budget: Budget) {
+  add(type: 'income' | 'outgo', budget: Budget): void {
     this.state.budgets[type].push(budget);
+  }
+
+  remove(type: 'income' | 'outgo', budget: Budget): void {
+    const index = this.state.budgets[type].findIndex((b: Budget) => b === budget);
+    this.state.budgets[type].splice(index, 1);
   }
 }

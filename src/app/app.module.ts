@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdToolbarModule, MdInputModule, MdRadioModule, MdButtonModule, MdTabsModule } from '@angular/material';
+import { MdToolbarModule, MdInputModule, MdRadioModule, MdButtonModule, MdTabsModule, MdIconModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +29,8 @@ import { InputComponent } from './input/input.component';
     MdInputModule,
     MdRadioModule,
     MdButtonModule,
-    MdTabsModule
+    MdTabsModule,
+    MdIconModule
   ],
   providers: [StoreService],
   bootstrap: [AppComponent]
